@@ -4,20 +4,20 @@ namespace VoxDecoder
 {
     public struct Voxel : IEquatable<Voxel>
     {
-        public int x, y, z;
-        public int colorIndex;
+        public int vox;
+        public byte X => (byte)((vox >> 24) & 0xff);
+        public byte Y => (byte)((vox >> 16) & 0xff);
+        public byte Z => (byte)((vox >> 8) & 0xff);
+        public byte I => (byte)((vox >> 0) & 0xff);
 
-        public Voxel(int x, int y, int z, int colorIndex)
+        public Voxel(int vox)
         {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.colorIndex = colorIndex;
+            this.vox = vox;
         }
 
         public override int GetHashCode()
         {
-            return x.GetHashCode() ^ (y.GetHashCode() << 2) ^ (z.GetHashCode() >> 2) ^ (colorIndex.GetHashCode() >> 1);
+            return vox.GetHashCode();
         }
 
         public override bool Equals(object other)
@@ -29,7 +29,7 @@ namespace VoxDecoder
 
         public bool Equals(Voxel other)
         {
-            return x.Equals(other.x) && y.Equals(other.y) && z.Equals(other.z) && colorIndex.Equals(other.colorIndex);
+            return vox.Equals(other.vox);
         }
     }
 }

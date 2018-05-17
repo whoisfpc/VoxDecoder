@@ -2,7 +2,7 @@ namespace VoxDecoder
 {
     public class VoxFile
     {
-        public readonly char[] magic = {'V', 'O', 'X', ' '};
+        public static readonly char[] magic = {'V', 'O', 'X', ' '};
 
         public int version;
 
