@@ -4,7 +4,7 @@ namespace VoxDecoder
 {
     public class VoxPalette
     {
-        public VoxColor[] colors;
+        public VoxColor[] colors = new VoxColor[256];
 
         public static readonly uint[] defaultColors =
         {

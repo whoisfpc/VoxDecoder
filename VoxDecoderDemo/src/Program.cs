@@ -8,7 +8,7 @@ namespace VoxDecoderDemo
         static void Main(string[] args)
         {
             var voxReader = new VoxReader();
-            var voxFile = voxReader.ParseFile("3x3x3.vox");
+            var voxFile = voxReader.ParseFile("3x3x3_new.vox");
 
             Console.WriteLine("VoxFile versio: {0}", voxFile.version);
             Console.WriteLine("Model count: {0}", voxFile.ModelCount);
