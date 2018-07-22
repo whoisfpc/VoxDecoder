@@ -5,10 +5,10 @@ namespace VoxDecoder
     public struct Voxel : IEquatable<Voxel>
     {
         public int vox;
-        public byte X => (byte)((vox >> 24) & 0xff);
-        public byte Y => (byte)((vox >> 16) & 0xff);
-        public byte Z => (byte)((vox >> 8) & 0xff);
-        public byte I => (byte)((vox >> 0) & 0xff);
+        public byte X => (byte)((vox >> 0) & 0xff);
+        public byte Y => (byte)((vox >> 8) & 0xff);
+        public byte Z => (byte)((vox >> 16) & 0xff);
+        public byte I => (byte)((vox >> 24) & 0xff);
 
         public Voxel(int vox)
         {
