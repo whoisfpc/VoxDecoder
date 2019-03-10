@@ -9,7 +9,7 @@ namespace VoxDecoderDemo
         {
             var voxReader = new VoxReader();
             var voxFile = voxReader.ParseFile("test.vox");
-            Console.WriteLine(voxFile.chunks.Count);
+            Console.WriteLine($"chunks count: {voxFile.chunks.Count}, skipedChunks: {voxFile.skipedChunks}");
         }
     }
 }

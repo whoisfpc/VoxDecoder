@@ -17,7 +17,10 @@ namespace VoxDecoder
         public List<NSHPChunk> nSHPChunks = new List<NSHPChunk>();
         public List<MATLChunk> matlChunks = new List<MATLChunk>();
         public List<LAYRChunk> layrChunks = new List<LAYRChunk>();
+        public List<ROBJChunk> rOBJChunks = new List<ROBJChunk>();
         public RGBAChunk rgbaChunk;
+
+        public int skipedChunks = 0;
 
         public void AddChunk(MainChunk chunk)
         {
@@ -64,6 +67,12 @@ namespace VoxDecoder
         {
             chunks.Add(chunk);
             layrChunks.Add(chunk);
+        }
+
+        public void AddChunk(ROBJChunk chunk)
+        {
+            chunks.Add(chunk);
+            rOBJChunks.Add(chunk);
         }
 
         public void AddChunk(RGBAChunk chunk)
