@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using VoxDecoder.Chunks;
+
 namespace VoxDecoder
 {
     public class VoxFile
@@ -6,10 +9,25 @@ namespace VoxDecoder
 
         public int version;
 
-        public int ModelCount => models == null ? 0 : models.Length;
+        public List<Chunk> chunks = new List<Chunk>();
+        public List<SizeChunk> sizeChunks = new List<SizeChunk>();
+        public List<XYZIChunk> xyziChunks = new List<XYZIChunk>();
 
-        public VoxModel[] models;
+        public void AddChunk(MainChunk chunk)
+        {
+            chunks.Add(chunk);
+        }
 
-        public VoxPalette palette;
+        public void AddChunk(SizeChunk chunk)
+        {
+            chunks.Add(chunk);
+            sizeChunks.Add(chunk);
+        }
+
+        public void AddChunk(XYZIChunk chunk)
+        {
+            chunks.Add(chunk);
+            xyziChunks.Add(chunk);
+        }
     }
 }
