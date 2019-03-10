@@ -13,6 +13,7 @@ namespace VoxDecoder
         public List<SizeChunk> sizeChunks = new List<SizeChunk>();
         public List<XYZIChunk> xyziChunks = new List<XYZIChunk>();
         public List<NTRNChunk> nTRNChunks = new List<NTRNChunk>();
+        public List<NGRPChunk> nGRPChunks = new List<NGRPChunk>();
 
         public void AddChunk(MainChunk chunk)
         {
@@ -35,6 +36,12 @@ namespace VoxDecoder
         {
             chunks.Add(chunk);
             nTRNChunks.Add(chunk);
+        }
+
+        public void AddChunk(NGRPChunk chunk)
+        {
+            chunks.Add(chunk);
+            nGRPChunks.Add(chunk);
         }
     }
 }
