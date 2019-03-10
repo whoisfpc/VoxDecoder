@@ -15,6 +15,9 @@ namespace VoxDecoder
         public List<NTRNChunk> nTRNChunks = new List<NTRNChunk>();
         public List<NGRPChunk> nGRPChunks = new List<NGRPChunk>();
         public List<NSHPChunk> nSHPChunks = new List<NSHPChunk>();
+        public List<MATLChunk> matlChunks = new List<MATLChunk>();
+        public List<LAYRChunk> layrChunks = new List<LAYRChunk>();
+        public RGBAChunk rgbaChunk;
 
         public void AddChunk(MainChunk chunk)
         {
@@ -49,6 +52,24 @@ namespace VoxDecoder
         {
             chunks.Add(chunk);
             nSHPChunks.Add(chunk);
+        }
+
+        public void AddChunk(MATLChunk chunk)
+        {
+            chunks.Add(chunk);
+            matlChunks.Add(chunk);
+        }
+
+        public void AddChunk(LAYRChunk chunk)
+        {
+            chunks.Add(chunk);
+            layrChunks.Add(chunk);
+        }
+
+        public void AddChunk(RGBAChunk chunk)
+        {
+            chunks.Add(chunk);
+            rgbaChunk = chunk;
         }
     }
 }

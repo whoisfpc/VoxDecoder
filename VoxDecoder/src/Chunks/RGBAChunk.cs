@@ -4,7 +4,7 @@ namespace VoxDecoder.Chunks
 {
     public class RGBAChunk : Chunk
     {
-        public static readonly string ID = "RGBA";
+        public const string ID = "RGBA";
 
         public VoxColor[] colors = new VoxColor[256];
 

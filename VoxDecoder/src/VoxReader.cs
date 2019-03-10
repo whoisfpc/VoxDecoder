@@ -28,6 +28,7 @@ namespace VoxDecoder
 
             var voxFile = new VoxFile();
             voxFile.version = version;
+            int skipedChunks = 0;
             while (reader.BaseStream.Position != reader.BaseStream.Length)
             {
                 string ID = ReadID(reader);
@@ -51,10 +52,21 @@ namespace VoxDecoder
                     case NSHPChunk.ID:
                         voxFile.AddChunk(new NSHPChunk(reader));
                         break;
+                    case MATLChunk.ID:
+                        voxFile.AddChunk(new MATLChunk(reader));
+                        break;
+                    case LAYRChunk.ID:
+                        voxFile.AddChunk(new LAYRChunk(reader));
+                        break;
+                    case RGBAChunk.ID:
+                        voxFile.AddChunk(new RGBAChunk(reader));
+                        break;
                     default:
+                        // SKIP unknow chunk
+                        // TODO: throw exception
                         MainChunk chunk = new MainChunk(reader);
                         reader.ReadBytes(chunk.contentSize);
-                        //return voxFile;
+                        skipedChunks++;
                         break;
                 }
             }
