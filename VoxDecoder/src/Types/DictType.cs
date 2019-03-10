@@ -16,7 +16,7 @@ namespace VoxDecoder.Types
             {
                 var key = new StringType(reader);
                 var value = new StringType(reader);
-                pairs[i] = new Tuple<StringType, StringType>(key, value);
+                pairs[i] = Tuple.Create(key, value);
             }
         }
     }

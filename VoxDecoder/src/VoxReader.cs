@@ -48,6 +48,9 @@ namespace VoxDecoder
                     case NGRPChunk.ID:
                         voxFile.AddChunk(new NGRPChunk(reader));
                         break;
+                    case NSHPChunk.ID:
+                        voxFile.AddChunk(new NSHPChunk(reader));
+                        break;
                     default:
                         MainChunk chunk = new MainChunk(reader);
                         reader.ReadBytes(chunk.contentSize);
